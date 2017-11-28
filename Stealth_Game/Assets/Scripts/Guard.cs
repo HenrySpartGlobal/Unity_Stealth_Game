@@ -6,6 +6,7 @@ public class Guard : MonoBehaviour {
 
 	public float speed = 5;
 	public float waitTime = .3f;
+	public float turnSpeed  = 90; //90 degrees per second
 
 	public Transform pathHolder;
 
@@ -30,17 +31,33 @@ public class Guard : MonoBehaviour {
 
 		int targetWaypointIndex = 1;
 		Vector3 targetWaypoint = waypoints [targetWaypointIndex];
+		//guard faces the waypoint intially
+		transform.LookAt(targetWaypoint);
 		//moves guard to target waypoint constantly, depending on the speed float variable
 		while (true) {
 			transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
-			//Once target way point is reached, wait, then move 
+			//Once target way point is reached, wait, then move
 			if (transform.position == targetWaypoint) {
 				//included a mod (modulo) operator when targetwaypointindex is equal to the waypoints it will return to 0
 				targetWaypointIndex = (targetWaypointIndex + 1 ) % waypoints.Length;
 				targetWaypoint = waypoints [targetWaypointIndex];
 				yield return new WaitForSeconds (waitTime);
+				yield return StartCoroutine (TurnToFace(targetWaypoint));
 			}
 			//yield for one frame for each iteration of the while loop
+			yield return null;
+		}
+
+	}
+	// turning towards way point before moving to the next one
+	IEnumerator TurnToFace(Vector3 lookTarget) {
+		Vector3 dirToLookTarget = (lookTarget - transform.position).normalized;
+		float targetAngle = 90 - Mathf.Atan2(dirToLookTarget.z, dirToLookTarget.x) * Mathf.Rad2Deg;
+		//rotate to target over time
+		//while loop will stop running once the guard is facing the look target
+		while (Mathf.DeltaAngle(transform.eulerAngles.y, targetAngle) > 0.05f) {
+			float angle = Mathf.MoveTowardsAngle(transform.eulerAngles.y, targetAngle, turnSpeed * Time.deltaTime);
+			transform.eulerAngles = Vector3.up * angle;
 			yield return null;
 		}
 
