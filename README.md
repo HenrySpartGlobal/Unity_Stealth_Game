@@ -6,9 +6,9 @@ A simple stealth based game where the aim is to get to the safe area without bei
 
 The guards spotlight color will change if they sense suspicious activity or they can see the player. This is an added visual aid to inform the player to rethink their approach and reposition if need be. 
 
-The game will have 3 levels, each getting progressively difficult. 
+The game will have 3 levels. Naturally, the difficulty will increase with each increment.
 
-Download will be available soon
+**Download will be available soon!**
 
 Note: The art style and models are extremely basic! 
 
