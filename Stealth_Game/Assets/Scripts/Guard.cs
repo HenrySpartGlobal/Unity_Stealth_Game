@@ -7,10 +7,21 @@ public class Guard : MonoBehaviour {
 	public float speed = 5;
 	public float waitTime = .3f;
 	public float turnSpeed  = 90; //90 degrees per second
+ 
+	public Light spotlight; //Guards spot light, and vision cone
+	public float viewDistance;
+	public LayerMask viewMask;
+	float viewAngle;
 
 	public Transform pathHolder;
+	Transform player;
+	Color MainSpotLightColor;
 
 	void Start() {
+		//finds the player tag
+		player = GameObject.FindGameObjectWithTag ("Player").transform;
+		viewAngle = spotlight.spotAngle;
+		MainSpotLightColor = spotlight.color;
 
 		// array of all points in the path, the size depends on the chil dren within the path
 		Vector3[] waypoints = new Vector3[pathHolder.childCount];
@@ -21,6 +32,33 @@ public class Guard : MonoBehaviour {
 			}
 		StartCoroutine (FollowPath (waypoints));
 
+	}
+
+	void Update (){
+		if (CanSeePlayer()) {
+			//if player is seen, spotlight on Guard turns red
+			spotlight.color = Color.red;
+		} else {
+			spotlight.color = MainSpotLightColor;
+
+		}
+
+	}
+
+	bool CanSeePlayer(){
+		//checks if the distance between player and guard position is less than view distance
+		if (Vector3.Distance(transform.position,player.position) < viewDistance) {
+				//checks the angles
+				Vector3 dirToPlayer = (player.position - transform.position).normalized;
+				float angleBetweenGuardAndPlayer = Vector3.Angle (transform.forward, dirToPlayer);
+				if (angleBetweenGuardAndPlayer < viewAngle /2f) {
+					//line of sight blocking check
+					if (!Physics.Linecast(transform.position, player.position,viewMask)) {
+						return true;
+					}
+				}
+		}
+		return false;
 	}
 
 	//follow path Coroutine, with an array called way points.
@@ -74,6 +112,9 @@ public class Guard : MonoBehaviour {
 			previousPosition = waypoint.position;
 		}
 			Gizmos.DrawLine(previousPosition, startPosition);
+			//guard vision cone drawn in game
+			Gizmos.color = Color.red;
+			Gizmos.DrawRay(transform.position,transform.forward * viewDistance);
 
 	}
 
