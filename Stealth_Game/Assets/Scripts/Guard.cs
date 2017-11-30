@@ -4,14 +4,19 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour {
 
+	public static event System.Action OnGuardHasSpottedPlayer;
+
 	public float speed = 5;
 	public float waitTime = .3f;
 	public float turnSpeed  = 90; //90 degrees per second
- 
+	public float awarenessTimer = .5f;
+
 	public Light spotlight; //Guards spot light, and vision cone
 	public float viewDistance;
 	public LayerMask viewMask;
+
 	float viewAngle;
+	float playerVisibleTimer;
 
 	public Transform pathHolder;
 	Transform player;
@@ -36,13 +41,24 @@ public class Guard : MonoBehaviour {
 
 	void Update (){
 		if (CanSeePlayer()) {
-			//if player is seen, spotlight on Guard turns red
-			spotlight.color = Color.red;
+		//counts up or down the visible timer if player is seen or not
+			playerVisibleTimer += Time.deltaTime;
 		} else {
-			spotlight.color = MainSpotLightColor;
+			playerVisibleTimer -= Time.deltaTime;
 
 		}
+		//clap timer
+		playerVisibleTimer = Mathf.Clamp(playerVisibleTimer,0, awarenessTimer);
+		//the colour of the spotlight depends on the awareness of the guard with the 2 functions
+		spotlight.color = Color.Lerp(MainSpotLightColor,Color.red, playerVisibleTimer / awarenessTimer);
 
+		if (playerVisibleTimer >= awarenessTimer) {
+			//guard has spotted players
+			if (OnGuardHasSpottedPlayer != null){
+				OnGuardHasSpottedPlayer ();
+			}
+
+		}
 	}
 
 	bool CanSeePlayer(){
