@@ -10,7 +10,7 @@ As mentioned above the spotlight emitting from the guards represents the guards 
 
 The red line represents the guards real vision distance. This can be adjusted to increase or decrease difficulty.
 
-![Guard_View_Distance](D:\Unity Games\Stealth_Game\Images\Guard_View_Distance.png)
+![Guard_View_Distance](Images\Guard_View_Distance.png)
 
 The player is not seen behind obstacles and the light from the guard also does not display through obstacles. ![Player_Not_Seen](D:\Unity Games\Stealth_Game\Images\Player_Not_Seen.png)
 
