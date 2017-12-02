@@ -23,7 +23,7 @@ Guards have public variable exposed in the engine which can be increased or decr
 
 The below screenshot demonstrates the red light when the player has been seen. The lines and circles represent the guards patrol path. 
 
-![Player_Seen](D:\Unity Games\Stealth_Game\Images\Player_Seen.png)
+![Player_Seen](https://gyazo.com/9efdb3f0c86242d1dba7c795b6960d4b)
 
  Completed level with several guards. ![Finished_Game](D:\Unity Games\Stealth_Game\Images\Finished_Game.png)
 
