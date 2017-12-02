@@ -10,9 +10,12 @@ As mentioned above the spotlight emitting from the guards represents the guards 
 
 The red line represents the guards real vision distance. This can be adjusted to increase or decrease difficulty.
 
-![Guard_View_Distance](Images\Guard_View_Distance.png)
+![guard_view_distance](https://user-images.githubusercontent.com/31442053/33516441-b6e9e5da-d76a-11e7-944f-1cf8df7ac15c.png)
 
-The player is not seen behind obstacles and the light from the guard also does not display through obstacles. ![Player_Not_Seen](D:\Unity Games\Stealth_Game\Images\Player_Not_Seen.png)
+
+The player is not seen behind obstacles and the light from the guard also does not display through obstacles. 
+![player_not_seen](https://user-images.githubusercontent.com/31442053/33516452-f30ea398-d76a-11e7-97d0-00d80bf525fc.png)
+
 
 Guards have public variable exposed in the engine which can be increased or decreased depending on the required difficulty. Behaviors such as: 
 
@@ -22,10 +25,12 @@ Guards have public variable exposed in the engine which can be increased or decr
 - Awareness Timer 
 
 The below screenshot demonstrates the red light when the player has been seen. The lines and circles represent the guards patrol path. 
+![player_seen](https://user-images.githubusercontent.com/31442053/33516464-139e6d1e-d76b-11e7-8d37-95ba3f5f7d3b.png)
 
-![Player_Seen](https://gyazo.com/9efdb3f0c86242d1dba7c795b6960d4b)
 
- Completed level with several guards. ![Finished_Game](D:\Unity Games\Stealth_Game\Images\Finished_Game.png)
+Completed level with several guards.
+![finished_game](https://user-images.githubusercontent.com/31442053/33516475-2d62ca60-d76b-11e7-8b27-cefd1a9ff3ec.png)
+
 
 *All assets used are free from the Unity Asset store*
 
