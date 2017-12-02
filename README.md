@@ -1,12 +1,12 @@
 # Unity Stealth Game
 
-A simple stealth based game where the aim is to get to the safe area without being spotted by the guards on the level. Each guard has a spotlight, which visually represents their Vision cone. Players can use obstacles and walls placed around the level to sneak past and around guards. 
+A simple Stealth based game where the aim is to get to the safe area, marked green, without being spotted by the guards on the level. Each guard has a spotlight, which visually represents their Vision cone. Players can use obstacles and walls placed around the level to sneak past and around guards. 
 
-The guards spotlight color will change if the guard is aware of the player. The spotlight colour change is a visual aid to inform the player to rethink their approach and reposition if need be. 
+The guards spotlight colour will change if they are visually aware of the player. The spotlight colour change is a visual aid to inform the player to rethink their approach and reposition if need be. 
 
 # Guards 
 
-As mentioned above the spotlight emitting from the guards represents the guards vision cone. If a player enters this area then the game is over. However,  the guards real sight distance is slightly shorter than the perceived spot light particle effect, this is to decrease difficulty as the the light is faded towards the end of the spotlight, and knowing the exact vision cone will be difficult to play around
+As mentioned above the spotlight emitting from the guards represents the guards vision cone. If a player enters this area then the game is over. However,  the guards actual vision distance is slightly shorter than the perceived spot light particle effect. This is to decrease difficulty as the the light is faded towards the end of the spotlight, and knowing the exact distance is hard to judge.
 
 The red line represents the guards real vision distance. This can be adjusted to increase or decrease difficulty.
 
@@ -17,7 +17,7 @@ The player is not seen behind obstacles and the light from the guard also does n
 ![player_not_seen](https://user-images.githubusercontent.com/31442053/33516452-f30ea398-d76a-11e7-97d0-00d80bf525fc.png)
 
 
-Guards have public variable exposed in the engine which can be increased or decreased depending on the required difficulty. Behaviors such as: 
+Guards have public variables exposed in the Game engine which can be increased or decreased depending on the required difficulty. Behaviors such as: 
 
 - Turn Speed
 - Move Speed
