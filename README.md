@@ -24,7 +24,7 @@ Guards have public variable exposed in the engine which can be increased or decr
 - Wait Time
 - Awareness Timer 
 
-The below screenshot demonstrates the red light when the player has been seen. The lines and circles represent the guards patrol path. 
+The below screenshot demonstrates the red light when the player has been seen. Circles show guards patrol path. 
 ![player_seen](https://user-images.githubusercontent.com/31442053/33516464-139e6d1e-d76b-11e7-8d37-95ba3f5f7d3b.png)
 
 
