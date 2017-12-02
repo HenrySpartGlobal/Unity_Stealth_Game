@@ -4,6 +4,10 @@ A simple Stealth based game where the aim is to get to the safe area, marked gre
 
 The guards spotlight colour will change if they are visually aware of the player. The spotlight colour change is a visual aid to inform the player to rethink their approach and reposition if need be. 
 
+# How to Play
+
+Use the arrow keys or WASD on your keyboard to move the player, simple!
+
 # Guards 
 
 As mentioned above the spotlight emitting from the guards represents the guards vision cone. If a player enters this area then the game is over. However,  the guards actual vision distance is slightly shorter than the perceived spot light particle effect. This is to decrease difficulty as the the light is faded towards the end of the spotlight, and knowing the exact distance is hard to judge.
