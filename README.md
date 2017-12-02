@@ -36,7 +36,7 @@ Completed level with several guards.
 
 # Download 
 
-Clone and Download this project. Open the "Stealth_Game" Game folder and run the "StealthGame_Build" Unity Application. 
+Clone and Download this project (ZIP). Open the "Stealth_Game" Game folder and run the "StealthGame_Build" Unity Application. 
 
 This will open the Unity Game.
 
